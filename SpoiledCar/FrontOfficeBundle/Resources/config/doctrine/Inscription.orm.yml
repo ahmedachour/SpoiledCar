@@ -1,0 +1,28 @@
+SpoiledCar\FrontOfficeBundle\Entity\Inscription:
+    type: entity
+    table: null
+    repositoryClass: SpoiledCar\FrontOfficeBundle\Repository\InscriptionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        mail:
+            type: string
+            length: 255
+        motdepasse:
+            type: string
+            length: 255
+        nomprenom:
+            type: string
+            length: 255
+        telephone:
+            type: integer
+        date:
+            type: datetime
+        sexe:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

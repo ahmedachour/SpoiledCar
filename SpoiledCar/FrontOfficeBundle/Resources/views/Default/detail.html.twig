@@ -1,0 +1,217 @@
+{% extends 'base.html.twig' %}
+{% block section %}
+<section>
+
+		<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+			<div class="container">
+				<a href="{{ path('spoiled_car_front_office_homepage') }}" class="b-breadCumbs__page">Accueil</a><span class="fa fa-angle-right"></span><a href="{{ path('spoiled_car_front_office_detail', { 'id': voitures.id }) }}" class="b-breadCumbs__page">Details</a>
+			</div>
+		</div><!--b-breadCumbs-->
+
+		
+<section class="b-detail s-shadow">
+			<div class="container">
+				<header class="b-detail__head s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+					<div class="row">
+						<div class="col-sm-9 col-xs-12">
+							<div class="b-detail__head-title">
+								<h1>{{ voitures.marque.nomMarque }}  {{ voitures.modele.nom }} {{ voitures.anneecirculation }}</h1>
+							</div>
+						</div>
+						<div class="col-sm-3 col-xs-12">
+							<div class="b-detail__head-price">
+								<div class="b-detail__head-price-num">{{ voitures.prix }} TND</div>
+							</div>
+						</div>
+					</div>
+				</header>
+				<div class="b-detail__main">
+					<div class="row">
+						<div class="col-md-8 col-xs-12">
+							<div class="b-detail__main-info">
+								<div class="b-detail__main-info-images wow zoomInUp" data-wow-delay="0.5s">
+									<div class="row m-smallPadding">
+										<div class="col-xs-10">
+											<ul class="b-detail__main-info-images-big bxslider enable-bx-slider" data-pager-custom="#bx-pager" data-mode="horizontal" data-pager-slide="true" data-mode-pager="vertical" data-pager-qty="5">
+												<li class="s-relative">                                        
+													<img class="img-responsive center-block"  src="{{asset('uploads/documents/'~voitures.path)}}" alt="nissan" />
+												</li>
+												
+												
+												
+											</ul>
+										</div>
+										
+									</div>
+								</div>
+								<div class="b-detail__main-info-characteristics wow zoomInUp" data-wow-delay="0.5s">
+									
+									<div class="b-detail__main-info-characteristics-one">
+										<div class="b-detail__main-info-characteristics-one-top">
+											<div><span class="fa fa-at"></span></div>
+											<p>{{ voitures.boitevitesse }}</p>
+										</div>
+										<div class="b-detail__main-info-characteristics-one-bottom">
+											Transmission
+										</div>
+									</div>
+									
+									<div class="b-detail__main-info-characteristics-one">
+										<div class="b-detail__main-info-characteristics-one-top">
+											<div><span class="fa fa-user"></span></div>
+											<p>{{ voitures.nbrportes }}</p>
+										</div>
+										<div class="b-detail__main-info-characteristics-one-bottom">
+											Portes
+										</div>
+									</div>
+									
+								</div>
+								<div class="b-detail__main-info-text wow zoomInUp" data-wow-delay="0.5s">
+									<div class="b-detail__main-aside-about-form-links">
+										<a href="#" class="j-tab m-active s-lineDownCenter" data-to='#info1'>ENQUÊTE GÉNÉRALE</a>
+									
+									</div>
+									<div id="info1">
+										<p>{{ voitures.description }}</p>
+					
+										
+										
+									</div>
+									
+								</div>
+								<div class="b-detail__main-info-extra wow zoomInUp" data-wow-delay="0.5s">
+									<h2 class="s-titleDet">
+fonctionnalités supplémentaires</h2>
+									<div class="row">
+										<div class="col-xs-4">
+											<ul>
+												<li><span class="fa fa-check"></span>Système de sécurité : {{ voitures.systemedesecurite ? 'Oui':'Non' }}</li>
+												<li><span class="fa fa-check"></span>Climatisation : {{ voitures.climatisation ? 'Oui':'Non' }}</li>
+												<li><span class="fa fa-check"></span>Roue en Alliage : {{ voitures.roueenalliage ? 'Oui':'Non' }}</li>
+												<li><span class="fa fa-check"></span>Freins antiblocage (ABS) : {{ voitures.freinsabs ? 'Oui':'Non' }}</li>
+												<li><span class="fa fa-check"></span>Antivol : {{ voitures.antivol ? 'Oui':'Non' }}</li>
+											</ul>
+										</div>
+										<div class="col-xs-4">
+											<ul>
+												<li><span class="fa fa-check"></span>Airbag : {{ voitures.airbag ? 'Oui':'Non' }}</li>
+												<li><span class="fa fa-check"></span>Rétroviseurs électriques : {{ voitures.retroviseurselectrique ? 'Oui':'Non' }}
+</li>
+												<li><span class="fa fa-check"></span>Siège électrique : {{ voitures.siegeelectrique ? 'Oui':'Non' }}
+</li>						                                                <li>  <span class="fa fa-check"></span>Vitres électriques : {{ voitures.vitreelectrique ? 'Oui':'Non' }}
+</li>
+												<li><span class="fa fa-check"></span>Direction assistée : {{ voitures.directionassiste ? 'Oui':'Non' }}
+</li>
+											</ul>
+										</div>
+										<div class="col-xs-4">
+											<ul>
+												<li><span class="fa fa-check"></span>Lecteur CD : {{ voitures.lecteurcd ? 'Oui':'Non' }}
+</li>
+												<li><span class="fa fa-check"></span>Airbag Cotè Conducteur {{ voitures.airbagconducteur ? 'Oui':'Non' }}</li>
+</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<aside class="b-detail__main-aside">
+								<div class="b-detail__main-aside-desc wow zoomInUp" data-wow-delay="0.5s">
+									<h2 class="s-titleDet">Description</h2>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Marque</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.marque.nomMarque }}</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Modele</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.modele.nom }}</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Kilometrage</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.kilometrage }} km</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Type de carrosserie</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.carraosserie }}</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Style</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.style }}</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Chevaux</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.chevaux }} Chevaux</p>
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Transmission</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.boitevitesse }}
+</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">{{ voitures.couleur }}</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">Noir</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Passagers/Portes</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.nbrportes }} Portes</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-xs-6">
+											<h4 class="b-detail__main-aside-desc-title">Matricule
+</h4>
+										</div>
+										<div class="col-xs-6">
+											<p class="b-detail__main-aside-desc-value">{{ voitures.matricule }}</p>
+										</div>
+									</div>
+									
+								</div>
+								
+							</aside>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--b-detail-->
+                </section>
+    {% endblock %}

@@ -1,0 +1,110 @@
+SpoiledCar\FrontOfficeBundle\Entity\Voiture:
+    type: entity
+    table: null
+    repositoryClass: SpoiledCar\FrontOfficeBundle\Repository\VoitureRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    properties:
+        file:
+            - File:
+                maxSize: 6000000
+                nullable: TRUE
+    fields:
+        kilometrage:
+            type: integer
+        path:
+            type: string 
+            nullable: TRUE
+        prix:
+            type: integer 
+            nullable: TRUE
+        airbag:
+            type: string
+            nullable: TRUE
+        systemedesecurite:
+            type: string
+            nullable: TRUE
+        climatisation:
+            type: string
+            nullable: TRUE
+        roueenalliage:
+            type: string
+            nullable: TRUE
+        description:
+            type: string  
+            nullable: TRUE
+        airbagconducteur:
+            type: string
+            nullable: TRUE
+        vitreelectrique:
+            type: string
+            nullable: TRUE
+        siegeelectrique:
+            type: string
+            nullable: TRUE
+        lecteurcd:
+            type: string 
+            nullable: TRUE
+        directionassiste:
+            type: string
+            nullable: TRUE
+        retroviseurselectrique:
+            type: string
+            nullable: TRUE
+        antivol:
+            type: string
+            nullable: TRUE
+        freinsabs:
+            type: string
+            nullable: TRUE
+        anneecirculation:
+            type: string
+        style:
+            type: string
+            length: '20'
+        chevaux:
+            type: integer
+        nbrportes:
+            type: integer
+        boitevitesse:
+            type: string
+            length: '20'
+        couleur:
+            type: string
+            length: '20'
+        carraosserie:
+            type: string
+            length: '20'
+        matricule:
+            type: string
+            length: '30'
+        kilometragederniervidange:
+            type: integer
+    manyToOne:
+      user:
+        targetEntity: User
+        inversedBy: voiture
+        joinColumn:
+          name: user_id
+          referencedColumnName: id
+      marque:
+        targetEntity: Marque
+        inversedBy: voiture
+        joinColumn:
+          name: marque_id
+          referencedColumnName: id
+      modele:
+        targetEntity: Modele
+        inversedBy: voiture
+        joinColumn:
+          name: modele_id
+          referencedColumnName: id
+    oneToMany:
+      intervention_User:
+         targetEntity: Intervention_User
+         mappedBy: voiture
+    lifecycleCallbacks: {  }

@@ -1,0 +1,137 @@
+{% extends 'base.html.twig' %}
+{% block section %}
+<section>    
+
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/jquery-1.9.1.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/jquery-1.11.3.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/modernizr.custom.js')}}"></script>
+
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/assets/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/waypoints.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/jquery.easypiechart.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/classie.js')}}"></script>
+
+    <!--Switcher-->
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/assets/switcher/js/switcher.js')}}"></script>
+    <!--Owl Carousel-->
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/assets/owl-carousel/owl.carousel.min.js')}}"></script>
+    <!--bxSlider-->
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/assets/bxslider/jquery.bxslider.js')}}"></script>
+    <!-- jQuery UI Slider -->
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/assets/slider/jquery.ui-slider.js')}}"></script>
+
+    <!--Theme-->
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/jquery.smooth-scroll.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/wow.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/jquery.placeholder.min.js')}}"></script>
+    <script src="{{asset('bundles/SpoiledCarFrontOffice/js/theme.js')}}"></script>
+    <div class="b-breadCumbs s-shadow">
+            <div class="container wow zoomInUp" data-wow-delay="0.5s">
+                <a href="{{ path('spoiled_car_front_office_homepage') }}" class="b-breadCumbs__page">Accueil</a><span class="fa fa-angle-right"></span><a href="{{ path('spoiled_car_front_office_shop') }}" class="b-breadCumbs__page m-active">Shop</a>
+            </div>
+    </div><!--b-breadCumbs-->
+
+        <div class="b-items">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-4 col-xs-12">
+                        <aside class="b-items__aside">
+                            <h2 class="s-title wow zoomInUp" data-wow-delay="0.5s">Recherche Par</h2>
+                            <div class="b-items__aside-main wow zoomInUp" data-wow-delay="0.5s">
+                                <form action="{{ path('spoiled_car_front_office_shop') }}" method="POST">
+                                    {{ form_start(filterForm) }}	
+                                    <div class="b-items__aside-main-body">
+                                        <div class="b-items__aside-main-body-item">
+                                            <label>Marque</label>
+                                            <div>
+                                                {{ form_widget(filterForm.marque, { 'attr': {'class': 'm-select'} }) }}
+
+                                                <span class="fa fa-caret-down"></span>
+                                            </div>
+                                        </div>
+                                        <div class="b-items__aside-main-body-item">
+                                            <label>Modele</label>
+                                            <div>
+                                                {{ form_widget(filterForm.modele, { 'attr': {'class': 'm-select'} }) }}
+                                            </div>
+                                        </div>
+
+                                        <div class="b-items__aside-main-body-item">
+                                            <label>Nombre de Chevaux</label>
+                                            <div>
+                                                {{ form_widget(filterForm.chevaux, { 'attr': {'class': 'm-select'} }) }}
+
+                                                <span class="fa fa-caret-down"></span>
+                                            </div>
+                                        </div>
+                                        <div class="b-items__aside-main-body-item">
+                                            <label>Boite de Vitesse</label>
+                                            <div>
+                                                {{ form_widget(filterForm.boitevitesse, { 'attr': {'class': 'm-select'} }) }}
+
+                                                <span class="fa fa-caret-down"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <footer class="b-items__aside-main-footer">
+                                        <button type="submit" class="btn m-btn">Filtrer<span class="fa fa-angle-right"></span></button><br />
+                                        <a href="">Reinitialiser Tous les Filtres</a>
+                                    </footer>{{ form_end(filterForm) }}
+                                </form >
+                            </div>
+
+                        </aside>
+                    </div>
+
+                    <div class="col-lg-9 col-sm-8 col-xs-12">
+
+                        <div class="row m-border">
+                            {% for voiture in voitures %}
+
+                                <div class="col-lg-4 col-md-6 col-xs-12 wow zoomInUp" data-wow-delay="0.5s">
+                                    <div class="b-items__cell">
+                                        <div class="b-items__cars-one-img">
+                                            <img class='img-responsive' src="{{asset('uploads/documents/'~voiture.path)}}" alt='ferrari'/>
+
+                                        </div>
+                                        <div class="b-items__cell-info">
+                                            <div class="s-lineDownLeft b-items__cell-info-title">
+                                                <h2 class=""><a href="{{ path('spoiled_car_front_office_detail', { 'id': voiture.id }) }}">{{ voiture.anneecirculation }}  {{ voiture.marque.nomMarque }}  {{ voiture.modele.nom }}</a></h2>
+                                            </div>
+                                            <p>{{ voiture.description }}</p>
+                                            <div>
+                                                <div class="row m-smallPadding">
+                                                    <div class="col-xs-5">
+                                                        <span class="b-items__cars-one-info-title">Style:</span>
+                                                        <span class="b-items__cars-one-info-title">Kilometrage:</span>
+                                                        <span class="b-items__cars-one-info-title">Transmission:</span>
+                                                        <span class="b-items__cars-one-info-title">Nombre de Porttes:</span>
+                                                    </div>
+                                                    <div class="col-xs-7">
+                                                        <span class="b-items__cars-one-info-value">{{ voiture.style }}</span>
+                                                        <span class="b-items__cars-one-info-value">{{ voiture.kilometrage }}</span>
+                                                        <span class="b-items__cars-one-info-value">{{ voiture.boitevitesse }}</span>
+                                                        <span class="b-items__cars-one-info-value">{{ voiture.nbrportes }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h5 class="b-items__cell-info-price"><span>Prix:</span>{{ voiture.prix }} TND</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                        <div class="navigation">
+                            {{ knp_pagination_render(voitures) }}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div><!--b-items-->
+    </section>
+{% endblock %}

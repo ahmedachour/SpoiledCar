@@ -1,0 +1,33 @@
+SpoiledCar\FrontOfficeBundle\Entity\User:
+    type:  entity
+    table: fos_user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    
+    fields:
+        sexe:
+            type: string
+            length: 255
+    
+        date:
+            type: datetime
+            
+        telephone:
+            type: integer
+            length: 8
+        
+        nomprenom:
+            type: string
+            
+    oneToMany:
+      voiture:
+         targetEntity: Voiture
+         mappedBy: user
+      Intervention_User:
+         targetEntity: Intervention_User
+         mappedBy: user
+
+            

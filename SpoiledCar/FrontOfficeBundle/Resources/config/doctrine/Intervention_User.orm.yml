@@ -1,0 +1,35 @@
+SpoiledCar\FrontOfficeBundle\Entity\Intervention_User:
+    type: entity
+    table: null
+    repositoryClass: SpoiledCar\FrontOfficeBundle\Repository\Intervention_UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+            length: 255
+        prix:
+            type: integer
+            length: 255
+        date:
+            type: date
+        step:
+            type: integer
+    manyToOne:
+      user:
+        targetEntity: User
+        inversedBy: Intervention_User
+        joinColumn:
+          name: user_id
+          referencedColumnName: id
+      voiture:
+        targetEntity: Voiture
+        inversedBy: intervention_User
+        joinColumn:
+          name: voiture_id
+          referencedColumnName: id
+    lifecycleCallbacks: {  }

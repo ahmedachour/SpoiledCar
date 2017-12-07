@@ -1,0 +1,7 @@
+# src/SpoiledCar/FrontOfficeBundle/config/validation.yml
+FrontOfficeBundle\Entity\Inscription:
+    properties:
+        mail:
+            - email:
+                message: The email "{{ value }}" is not a valid email.
+                checkMX: true

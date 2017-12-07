@@ -1,0 +1,65 @@
+
+
+{% extends 'base.html.twig' %}
+{% block section %}
+
+
+<section>
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+			<div class="container">
+				<a href="{{ path('spoiled_car_front_office_homepage') }}" class="b-breadCumbs__page">Accueil</a><span class="fa fa-angle-right"></span><a href="{{ path('spoiled_car_front_office_connexion') }}" class="b-breadCumbs__page m-active">Inscription/Connexion</a>
+			</div>
+		</div><!--b-breadCumbs-->
+
+		
+
+		<section class="b-contacts s-shadow">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="b-contacts__form">
+							<header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+								<h2 class="s-titleDet">S"inscrire</h2> 
+							</header>
+							<p class=" wow zoomInUp" data-wow-delay="0.5s">Entrez vos Coordonnèes.</p>
+							<div id="success"></div>
+							<form id="contactForm" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s">
+                                                                <input type="email" placeholder="Adresse Mail" value="" name="user-email" id="user-email" />
+								<input type="password" placeholder="Mot de Passe" value="" name="user-name" id="user-name" />
+								<input type="password" placeholder="Confirmer Votre Mot de Passe" value="" name="user-name" id="user-name" />
+
+								<input type="text" placeholder="Nom et Prenom" value="" name="user-name" id="user-name" />
+								<input type="text" placeholder="Telephone" value="" name="user-phone" id="user-phone" />
+								 <input type="date" max="2016-06-25" min="1900-01-01" name="the_date"  placeholder="Telephone"> 
+						&nbsp&nbsp&nbsp&nbsp <input type="checkbox" name="choix1" value="1"> Homme &nbsp&nbsp&nbsp&nbsp
+<INPUT type="checkbox" name="choix2" value="2"> Femme </br>
+								<button type="submit" class="btn m-btn">S'inscrire <span class="fa fa-angle-right"></span></button>
+							</form>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="b-contacts__address">
+							<div class="b-contacts__address-hours">
+                             <header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+								<h2 class="s-titleDet">Se Connecter</h2> 
+							</header>					
+							<div class="b-contacts__address-hours-main wow zoomInUp" data-wow-delay="0.5s">
+									<div class="row">
+										<form id="contactForm" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s">
+								<input type="text" placeholder="Nom d'Utilisateur" value="" name="user-name" id="user-name" />
+								<input type="password" placeholder="Mot de Passe" value="" name="user-name" id="user-name" />
+								
+								<button type="submit" class="btn m-btn">Se Connecter <span class="fa fa-angle-right"></span></button></br>
+								&nbsp&nbsp&nbsp <a href="connexion.html" class="b-breadCumbs__page">Mot de Passe Oubliè ?</a>
+							</form>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--b-contacts-->
+</section>
+    {% endblock %}

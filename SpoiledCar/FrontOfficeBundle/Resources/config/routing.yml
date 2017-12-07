@@ -1,0 +1,40 @@
+spoiled_car_front_office_intervention_user:
+    resource: "@SpoiledCarFrontOfficeBundle/Resources/config/routing/intervention_user.yml"
+    prefix:   /intervention_user
+
+spoiled_car_front_office_connexion:
+    defaults: {_controller: SpoiledCarFrontOfficeBundle:Inscription:new }
+    path:     /connexion
+    methods:  [GET , POST]
+
+spoiled_car_front_office_contact:
+    defaults: {_controller: SpoiledCarFrontOfficeBundle:Contact:new }
+    path:     /contact
+    methods:  [GET , POST]
+
+spoiled_car_front_office_homepage:
+    path:     /
+    defaults: { _controller: SpoiledCarFrontOfficeBundle:Default:index }
+    methods:  [GET , POST]
+
+
+spoiled_car_front_office_shop:
+    path:     /shop
+    defaults: { _controller: SpoiledCarFrontOfficeBundle:Default:listTable }
+    methods:  [GET , POST , HEAD]
+
+    
+spoiled_car_front_office_concept:
+    path:     /concept
+    defaults: { _controller: SpoiledCarFrontOfficeBundle:Default:about }
+    
+
+    
+spoiled_car_front_office_connexion:
+    path:     /connexion
+    defaults: { _controller: SpoiledCarFrontOfficeBundle:Default:connexion }
+    
+spoiled_car_front_office_detail:
+    path:     /detail/{id}
+    defaults: { _controller: SpoiledCarFrontOfficeBundle:Default:detail }
+    methods:  [GET , POST]

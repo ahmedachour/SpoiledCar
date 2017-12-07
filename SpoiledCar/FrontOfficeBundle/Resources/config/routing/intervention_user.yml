@@ -1,0 +1,24 @@
+intervention_user_index:
+    path:     /
+    defaults: { _controller: "SpoiledCarFrontOfficeBundle:Intervention_User:index" }
+    methods:  GET
+
+intervention_user_show:
+    path:     /{id}/show
+    defaults: { _controller: "SpoiledCarFrontOfficeBundle:Intervention_User:show" }
+    methods:  GET
+
+intervention_user_new:
+    path:     /new
+    defaults: { _controller: "SpoiledCarFrontOfficeBundle:Intervention_User:new" }
+    methods:  [GET, POST]
+
+intervention_user_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SpoiledCarFrontOfficeBundle:Intervention_User:edit" }
+    methods:  [GET, POST]
+
+intervention_user_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SpoiledCarFrontOfficeBundle:Intervention_User:delete" }
+    methods:  DELETE

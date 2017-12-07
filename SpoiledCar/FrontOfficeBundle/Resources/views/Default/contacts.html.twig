@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+{% block section %}
+
+<section>
+<div class="b-breadCumbs s-shadow wow zoomInUp" data-wow-delay="0.5s">
+			<div class="container">
+				<a href="{{ path('spoiled_car_front_office_homepage') }}" class="b-breadCumbs__page">Accueil</a><span class="fa fa-angle-right"></span><a href="{{ path('spoiled_car_front_office_contact') }}" class="b-breadCumbs__page m-active">Contactez-Nous</a>
+			</div>
+		</div><!--b-breadCumbs-->
+
+		<div class="b-map wow zoomInUp" data-wow-delay="0.5s">
+		    <script src="https://api-maps.yandex.ru/2.1/?lang=en_US" type="text/javascript"></script>
+
+		    <div id="map" style="width: 1350px; height: 400px"></div>
+
+			<script type="text/javascript">
+  ymaps.ready(init);
+    var myMap,
+        myPlacemark;
+
+    function init(){     
+        myMap = new ymaps.Map("map", {
+            center: [36.81, 10.16],
+            zoom: 7
+        });
+
+        myPlacemark = new ymaps.Placemark([36.81, 10.16], { 
+            hintContent: 'Moscow!', balloonContent: 'Capital of Russia' 
+        });
+
+        myMap.geoObjects.add(myPlacemark);
+    }
+</script>
+		
+		</div><!--b-map-->
+
+		<section class="b-contacts s-shadow">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="b-contacts__form">
+							<header class="b-contacts__form-header s-lineDownLeft wow zoomInUp" data-wow-delay="0.5s">
+								<h2 class="s-titleDet">Remplir le Formulaire</h2> 
+							</header>
+							<p class=" wow zoomInUp" data-wow-delay="0.5s">Entrez vos commentaires via le formulaire ci-dessous, et nos professionnels du service à la clientèle vous contacteront dans les plus brefs délais.</p>
+							<div id="success"></div>
+							<div id="contactForm" novalidate class="s-form wow zoomInUp" data-wow-delay="0.5s">
+								 {{ form_start(form) }}
+                                                                 {{ form_widget(form) }}
+                                                  	<button type="submit" value="Create" class="btn m-btn">Envoyer <span class="fa fa-angle-right"></span></button>
+
+                                                                 {{ form_end(form) }}
+                                                        </div>
+						</div>
+					</div>
+					<div class="col-xs-6">
+						<div class="b-contacts__address">
+							<div class="b-contacts__address-hours">
+								<h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">heures d'ouverture</h2>
+								<div class="b-contacts__address-hours-main wow zoomInUp" data-wow-delay="0.5s">
+									<div class="row">
+										<div class="col-md-6 col-xs-12">
+											<h5>Département Commerciale</h5>
+											<p>Lun-Sam : 8:00am - 5:00pm <br/>Fermè le Dimanche</p>
+										</div>
+										<div class="col-md-6 col-xs-12">
+											<h5> Departement des Services</h5>
+											<p>Lun-Sam : 8:00am - 5:00pm <br/>Fermè le Dimanche</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="b-contacts__address-info">
+								<h2 class="s-titleDet wow zoomInUp" data-wow-delay="0.5s">Nous-Joindre</h2>
+								<address class="b-contacts__address-info-main wow zoomInUp" data-wow-delay="0.5s">
+									<div class="b-contacts__address-info-main-item">
+										<span class="fa fa-home"></span>
+										ADRESSE
+										<p>202 W 7th St, Suite 233 Los Angeles, California 90014 USA</p>
+									</div>
+									<div class="b-contacts__address-info-main-item">
+										<div class="row">
+											<div class="col-lg-3 col-md-4 col-xs-12">
+												<span class="fa fa-phone"></span>
+												TEL
+										
+											</div>
+											<div class="col-lg-9 col-md-8 col-xs-12">
+												<em>1-800- 624-5462</em>
+											</div>
+										</div>
+									</div>
+									<div class="b-contacts__address-info-main-item">
+										<div class="row">
+											<div class="col-lg-3 col-md-4 col-xs-12">
+												<span class="fa fa-fax"></span>
+												FAX
+											</div>
+											<div class="col-lg-9 col-md-8 col-xs-12">
+												<em>1-800- 624-5462</em>
+											</div>
+										</div>
+									</div>
+									<div class="b-contacts__address-info-main-item">
+										<div class="row">
+											<div class="col-lg-3 col-md-4 col-xs-12">
+												<span class="fa fa-envelope"></span>
+												EMAIL
+											</div>
+											<div class="col-lg-9 col-md-8 col-xs-12">
+												<em>info@domain.com</em>
+											</div>
+										</div>
+									</div>
+								</address>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+                
+                </section><!--b-contacts-->
+{% endblock %}

@@ -1,0 +1,26 @@
+SpoiledCar\FrontOfficeBundle\Entity\Modele:
+    type: entity
+    table: modele
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nom:
+            type: string
+            length: 255
+    
+    oneToMany:
+      voiture:
+         targetEntity: Voiture
+         mappedBy: modele
+         
+    manyToOne:
+      marque:
+        targetEntity: Marque
+        inversedBy: modele
+        joinColumn:
+           name: marque_id
+           referencedColumnName: id

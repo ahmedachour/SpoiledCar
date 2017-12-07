@@ -1,0 +1,26 @@
+SpoiledCar\FrontOfficeBundle\Entity\Contact:
+    type: entity
+    table: null
+    repositoryClass: SpoiledCar\FrontOfficeBundle\Repository\ContactRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        sujet:
+            type: string
+            length: 255
+        nomprenom:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        telephone:
+            type: integer
+        commentaire:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
